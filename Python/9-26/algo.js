@@ -88,11 +88,6 @@ const two_expected4 = "GIT";
 //     return acro.toUpperCase();
 // }
 
-// console.log(acronymize(two_str1));
-// console.log(acronymize(two_str2));
-// console.log(acronymize(two_str3));
-// console.log(acronymize(two_str4));
-
 function acronymize(str) {
     var acro = "";
     if(str[0] != " ") {
