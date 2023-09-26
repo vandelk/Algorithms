@@ -93,29 +93,6 @@ const two_expected4 = "GIT";
 // console.log(acronymize(two_str3));
 // console.log(acronymize(two_str4));
 
-// Attempt at bonus iteration
-// function acronymize(str) {
-//     var acro = "";
-//     var count = 0;
-//     // acro = str[0];
-//     for(var i = 0; i < str.length; i++) {
-//         if(str[i] === " ") {
-//             continue;
-//             count = 0;
-//         }
-//         else {
-//             acro += str[i];
-//             count++;
-//         }
-//     }
-//     return acro.toUpperCase();
-// }
-
-// console.log(acronymize(two_str1));
-// console.log(acronymize(two_str2));
-// console.log(acronymize(two_str3));
-// console.log(acronymize(two_str4));
-
 function acronymize(str) {
     var acro = "";
     if(str[0] != " ") {
