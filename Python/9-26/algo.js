@@ -122,10 +122,7 @@ function acronymize(str) {
         acro = str[0];
     }
     for(var i = 1; i < str.length-1; i++) {
-        if(str[i] === " " && str[i+1] === " ") {
-            continue;
-        }
-        else if (str[i] === " "){
+        if(str[i] === " " && str[i+1] != " ") {
             acro += str[i+1];
         }
     }
