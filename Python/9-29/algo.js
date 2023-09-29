@@ -100,7 +100,6 @@ function invertObj(obj) {
     // for(let item in obj) { //prints keys
     //     console.log(item)
     // }
-
     for(let i = 0; i < keys.length; i++) {
         // Code for bonus
         if(values[i] in newObj) {
