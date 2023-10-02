@@ -69,13 +69,9 @@ function oddOccurrencesInArray(nums) {
     let freqTable = makeFrequencyTable(nums);
 
     for(let i = 0; i < nums.length;i++) {
-        if(freqTable[nums[i]] === 1) {
+        if(freqTable[nums[i]] % 2 === 1) {
             return nums[i];
         }
-        else if( freqTable[nums[i]] % 2 === 1) {
-            return nums[i];
-        }
-
     }
 }
 
