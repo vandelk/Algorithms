@@ -104,7 +104,7 @@ function binarySearch(sortedNumbers, searchNum) {
         if(sortedNumbers[mid] == searchNum) {
             return true;
         }
-        else if ( sortedNumbers[mid] < searchNum) {
+        else if (sortedNumbers[mid] < searchNum) {
             low = mid + 1;
         }
         else {
