@@ -93,35 +93,28 @@ const two_expected4 = 6;
  *    consecutive set of integers from the given array or null if none is missing.
  */
 function missingValue(unorderedNums) {
-    if(unorderedNums.length < 1 )
-    {
-        return null;
+    if (unorderedNums.length < 1) return null
+
+    let min = unorderedNums[0]
+    let max = unorderedNums[0]
+    let sum = 0
+    let expectedSum = 0
+
+    for (const n of unorderedNums) {
+        if (n < min) min = n
+
+        else if (n > max) max = n
+
+        sum += n
     }
 
-    let min = unorderedNums[0];
-    let max = unorderedNums[0];
-    let sum = 0;
-    let expectedSum = 0;
-
-    for(let i = 0; i < unorderedNums.length; i++) {
-        if (unorderedNums[i] < min) {
-            min = unorderedNums[i];
-        }
-        if (unorderedNums[i] > max) {
-            max = unorderedNums[i];
-        }
-        sum += unorderedNums[i];
+    for (let i=min; i<=max; i++) {
+        expectedSum += i
     }
 
-    for(let i = min; i < max; i++) {
-        expectedSum += i;
-    }
-    console.log(sum)
-    console.log(expectedSum)
-    return sum === expectedSum ? null : expectedSum-sum;
+    return sum === expectedSum ? null : expectedSum - sum
 }
 
-console.log(missingValue(two_nums1));
-console.log(missingValue(two_nums2));
-console.log(missingValue(two_nums3));
-console.log(missingValue(two_nums4));
+console.log(missingValue(two_nums1))
+console.log(missingValue(two_nums2))
+console.log(missingValue(two_nums3))
