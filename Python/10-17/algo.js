@@ -82,7 +82,7 @@ const two_expected6 = 21;
  * @returns {number} The fibonacci number at the given position.
  */
 function fibonacci(num) {
-    if (num < 2) {
+    if (num == 0 || num == 1) {
         return num;
     }
     return fibonacci(num-1) + fibonacci(num-2);
