@@ -25,15 +25,10 @@ const expected2 = "";
  * 
  */
 function reverseStr(str, i=str.length, newStr="") {
-    if(newStr.length === undefined) {
-        newStr = str[str.length-1]
+    if(str.length <= 1){
+        return str
     }
-    else {
-        newStr += str[i]
-    }
-    i--;
-    
-    return reverseStr(str,i, newStr)
+    return reverseStr(str.slice(1)) + str.charAt(0);
 }
 
 console.log(reverseStr(str1))
