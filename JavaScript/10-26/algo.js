@@ -35,7 +35,7 @@
 
 // create a function that takes in an array and returns it sorted
 function insertionSort(arr) {
-    for(let i = 1; i < arr.length; i++) {
+    for(let i = 0; i < arr.length; i++) {
         let temp = arr[i];
         if(temp < arr[i-1]) {
             for(let j = i; j >= 0; j--) {
@@ -44,6 +44,7 @@ function insertionSort(arr) {
                 }
                 else {
                     arr[j] = temp
+                    break;
                 }
             }
         }
