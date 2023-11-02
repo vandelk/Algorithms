@@ -38,17 +38,15 @@
 // 👉  take a few mins to write the pseudocode first
 // create the function and decide what params it needs and what it will return here:
 function twoSum(arr,k) {
-    let output = [];
     for(let i = 0; i < arr.length; i++) {
         for(let j=i+1; j < arr.length; j++) {
             if(arr[i] + arr[j] === k){
-                output.push(i,j);
-                return output;
+                return [i,j];
             }
         }
     }
 }
 
-console.log(twoSum([2, 11, 7, 15], 9));
-console.log(twoSum([3,2,4], 6));
-console.log(twoSum([3,3], 6));
+console.log(twoSum([2, 11, 7, 15], 9)); //expected [0, 2]
+console.log(twoSum([3,2,4], 6)); //expected [1, 2]
+console.log(twoSum([3,3], 6)); //expected [0, 1]
