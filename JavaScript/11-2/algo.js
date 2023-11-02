@@ -39,8 +39,8 @@
 // create the function and decide what params it needs and what it will return here:
 function twoSum(arr,k) {
     for(let i = 0; i < arr.length; i++) {
-        for(let j=i+1; j < arr.length; j++) {
-            if(arr[i] + arr[j] === k){
+        for(let j = i+1; j < arr.length; j++) {
+            if(arr[i] + arr[j] === k) {
                 return [i,j];
             }
         }
