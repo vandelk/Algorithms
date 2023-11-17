@@ -51,7 +51,20 @@ const expected6 = false;
     - "daam" the "a" cancels with itself leaving "dm", more than 1 char remaining, can't be palindrome
 */
 
-function canBecomePalindrome(str) { }
+function canBecomePalindrome(str) {
+  if (str.length == 0) return false
+  let array = []
+  let oddEven = str.length % 2
+  array = array.sort()
+  for (letter of str) {
+    if (array.includes(letter)) {
+      array.pop()
+    } else {
+      array.push(letter)
+    }
+  }
+  return (array.length - oddEven == 0)
+}
 
 canBecomePalindrome(str1);
 canBecomePalindrome(str2);
@@ -59,8 +72,8 @@ canBecomePalindrome(str3);
 canBecomePalindrome(str4);
 canBecomePalindrome(str5);
 
-// console.log(canBecomePalindrome(str1) === expected1); // false
-// console.log(canBecomePalindrome(str2) === expected2); // true
-// console.log(canBecomePalindrome(str3) === expected3); // true
-// console.log(canBecomePalindrome(str4) === expected4); // true
-// console.log(canBecomePalindrome(str5) === expected5); // true
+console.log(canBecomePalindrome(str1) === expected1); // false
+console.log(canBecomePalindrome(str2) === expected2); // true
+console.log(canBecomePalindrome(str3) === expected3); // true
+console.log(canBecomePalindrome(str4) === expected4); // true
+console.log(canBecomePalindrome(str5) === expected5); // true
