@@ -117,7 +117,7 @@ class SinglyLinkedList {
      */
     average() {
         if (this.isEmpty()) {
-            return 0;
+            return NaN;
         }
         else {
             let sum = 0;
