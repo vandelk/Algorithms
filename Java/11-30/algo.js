@@ -94,6 +94,14 @@ class SinglyLinkedList {
         return runner.data;
     }
 
+    removeHead() {
+        var temp = this.head;
+        this.head = temp.next;
+        temp.next = null;
+        return temp.data;
+    }
+
+
     /**
      * Removes the node that has the matching given val as it's data.
      * - Time: O(?).
@@ -103,21 +111,24 @@ class SinglyLinkedList {
      * @returns {boolean} Indicates if a node was removed or not.
      */
     removeVal(val) {
+        if (this.head.data === val) {
+            this.removeHead();
+            return true;
+        }
         var runner = this.head;
         var prev = null;
 
-        while (runner.next != null) {
+        while (runner != null) {
             if (runner.data == val) {
                 prev.next = runner.next
-                runner = runner.next
+                runner.next = null
                 return true
             }
-            else {
-                prev = runner
-                runner = runner.next
-            }
+            prev = runner
+            runner = runner.next
         }
         return false
+
     }
 
     // EXTRA
@@ -202,14 +213,14 @@ console.log(singleNodeList.secondToLast());
 console.log(firstThreeList.secondToLast());
 console.log(unorderedList.secondToLast());
 
-console.log(firstThreeList.removeVal(2));
+console.log(firstThreeList.removeVal(1));
 console.log(unorderedList.removeVal(-3));
 
 console.log(firstThreeList.toArr());
 console.log(unorderedList.toArr());
 
-console.log(firstThreeList.prepend(4, 2));
-console.log(unorderedList.prepend(3, 6));
+// console.log(firstThreeList.prepend(4, 2));
+// console.log(unorderedList.prepend(3, 6));
 
-console.log(firstThreeList.toArr());
-console.log(unorderedList.toArr());
+// console.log(firstThreeList.toArr());
+// console.log(unorderedList.toArr());
