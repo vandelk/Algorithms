@@ -94,6 +94,12 @@ class SinglyLinkedList {
         return runner.data;
     }
 
+    /**
+     * Removes the first node of this list.
+     * - Time: (?).
+     * - Space: (?).
+     * @returns {any} The data from the removed node.
+     */
     removeHead() {
         var temp = this.head;
         this.head = temp.next;
