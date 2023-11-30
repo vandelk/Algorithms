@@ -150,7 +150,12 @@ class SinglyLinkedList {
     prepend(newVal, targetVal) {
         var runner = this.head;
         var prev = null;
-        while (runner.next != null) {
+        if(runner.data == targetVal) {
+            this.head = new ListNode(newVal)
+            this.head.next = runner
+            return true
+        }
+        while (runner != null) {
             if (runner.data == targetVal) {
                 var newNode = new ListNode(newVal)
                 prev.next = newNode
@@ -215,18 +220,21 @@ const unorderedList = new SinglyLinkedList().insertAtBackMany([
 
 
 // Print your list like so:
+console.log("------SECOND TO LAST TESTS--------")
 console.log(singleNodeList.secondToLast());
 console.log(firstThreeList.secondToLast());
 console.log(unorderedList.secondToLast());
 
+console.log("------REMOVE VAL TESTS--------")
 console.log(firstThreeList.removeVal(1));
 console.log(unorderedList.removeVal(-3));
 
 console.log(firstThreeList.toArr());
 console.log(unorderedList.toArr());
 
-// console.log(firstThreeList.prepend(4, 2));
-// console.log(unorderedList.prepend(3, 6));
+console.log("------PREPEND TESTS--------")
+console.log(firstThreeList.prepend(4, 2));
+console.log(unorderedList.prepend(3, 6));
 
-// console.log(firstThreeList.toArr());
-// console.log(unorderedList.toArr());
+console.log(firstThreeList.toArr());
+console.log(unorderedList.toArr());
