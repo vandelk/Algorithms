@@ -19,6 +19,7 @@ class DoublyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
+        this.size = 0;
     }
 
     /**
@@ -39,6 +40,7 @@ class DoublyLinkedList {
             this.head = newNode;
             // newNode = this.head;
         }
+        this.size++;
         return this;
     }
 
@@ -59,6 +61,7 @@ class DoublyLinkedList {
             this.tail.prev = oldTail;
             this.tail.prev.next = this.tail;
         }
+        this.size++;
         return this;
     }
 
@@ -69,45 +72,61 @@ class DoublyLinkedList {
      * - Space: O(?).
      * @returns {any} The data of the removed node.
      */
-    removeMiddleNode() {
-        if (this.head == null) return null;
-        if (this.head == this.tail) {
-            this.head.data = null;
-            this.head = null;
-            return this;
-        }
-        if (this.head.next == this.tail) {
-            let tempHead = this.head;
-            this.head = this.tail;
-            this.head.next = null;
-            this.head.prev = null;
-            tempHead.next = null;
-            tempHead.prev = null;
-            tempHead.data = null;
-            return this;
-        }
-        let start = this.head;
-        let end = this.tail;
-        let size = 0;
-        while (start != end) {
-            start = start.next;
-            size++;
-        }
-        size = Math.floor(size / 2);
-        start = this.head;
-        for (let i = 0; i < size; i++) {
-            start = start.next;
-        }
-        let previous = start.prev;
-        previous.next = start.next;
-        start.next.prev = start.prev;
-        start.next = null;
-        start.prev = null;
-        start.data = null;
-        start = null;
-        return this;
-    }
+    // removeMiddleNode() {
+    //   if (this.head == null) return null;
+    //   if (this.head == this.tail) {
+    //     this.head.data = null;
+    //     this.head = null;
+    //     return this;
+    //   }
+    //   if (this.head.next == this.tail) {
+    //     let tempHead = this.head;
+    //     this.head = this.tail;
+    //     this.head.next = null;
+    //     this.head.prev = null;
+    //     tempHead.next = null;
+    //     tempHead.prev = null;
+    //     return this;
+    //   }
+    //   let start = this.head;
+    //   let size = 0;
+    //   while (start) {
+    //     start = start.next;
+    //     size++;
+    //   }
+    //   size = Math.floor(size / 2);
+    //   start = this.head;
+    //   for (let i = 0; i < size; i++) {
+    //     start = start.next;
+    //   }
+    //   let previous = start.prev;
+    //   previous.next = start.next;
+    //   start.next.prev = start.prev;
+    //   start.next = null;
+    //   start.prev = null;
+    //   return start.data;
+    // }
 
+    removeMiddleNode() {
+        if (this.size < 2 || this.size % 2 == 0) {
+            return "no middle node";
+        }
+        let headRunner = this.head;
+        let tailRunner = this.tail;
+        let middleNode = this.head;
+        while (headRunner) {
+            if (headRunner.next === tailRunner.prev) {
+                middleNode = headRunner.next;
+                middleNode.prev.next = middleNode.next;
+                middleNode.next.prev = middleNode.prev;
+                middleNode.next = null;
+                middleNode.prev = null;
+                return middleNode.data;
+            }
+            headRunner = headRunner.next;
+            tailRunner = tailRunner.prev;
+        }
+    }
     /**
      * Determines if this list is empty.
      * - Time: O(1) constant.
@@ -157,13 +176,8 @@ const unorderedList = new DoublyLinkedList().insertAtBackMany([
     -5, -10, 4, -3, 6, 1, -7, -2,
 ]);
 
-console.log(singleNodeList.toArray());
-console.log(biNodeList.toArray());
-console.log(firstThreeList.toArray());
 console.log(secondThreeList.toArray());
-console.log(unorderedList.toArray());
-console.log("-----------------TESTING--------------------");
-console.log(secondThreeList.removeMiddleNode().toArray());
-console.log(secondThreeList.removeMiddleNode().toArray());
-console.log(secondThreeList.removeMiddleNode().toArray());
+console.log(secondThreeList.removeMiddleNode());
+console.log(secondThreeList.removeMiddleNode());
+console.log(secondThreeList.removeMiddleNode());
 console.log(secondThreeList.insertAtFront(7).toArray());
